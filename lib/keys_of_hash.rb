@@ -1,11 +1,5 @@
 class Hash
   def keys_of(*arguments)
-    keys = []
-    arguments.each do |arg|
-      self.each do |key, val|
-        keys << key if val == arg
-      end
-    end
-    keys
+    self.map {|key, val| arguments.include?(val) ? key : nil }.compact
   end
 end
